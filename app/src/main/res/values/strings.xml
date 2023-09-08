@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">Lista prueba</string>
+
+    <string name="Modelo1">%1$s</string>
+
+    <string name="Modelo2">%1$s</string>
+
+    <string name="Modelo3">%1$s</string>
+
+    <string name="Modelo4">%1$s</string>
+
+    <string name="Modelo5">%1$s</string>
+
+    <!-- Separacion con otros strings -->
+
+    <string name="Titulo">Titulo ejemplo</string>
+
+    <string name="boton_listado">Terminos y Condiciones</string>
+
+    <string name="appbar_scrolling_view_behavior">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
+
+    <string name="terminos">Términos y Condiciones de Uso
+
+Última actualización: [Fecha de la última actualización]
+
+Bienvenido/a a [Nombre de la Aplicación/Sitio Web] ("nosotros" o "nuestro"). Al utilizar nuestra aplicación/sitio web, aceptas los siguientes términos:
+
+1. Uso Responsable
+    - Debes utilizar la aplicación/sitio web de manera responsable y cumplir con todas las leyes y regulaciones aplicables.
+
+2. Privacidad
+    - Respetamos tu privacidad. Consulta nuestra Política de Privacidad para conocer cómo manejamos tus datos.
+
+3. Contenido del Usuario
+    - Si compartes contenido, garantizas que tienes los derechos necesarios y que no viola derechos de terceros.
+
+4. Propiedad Intelectual
+    - Todos los derechos de propiedad intelectual de la aplicación/sitio web son nuestros. No puedes copiar ni modificar nuestro contenido sin permiso.
+
+5. Cambios en los Términos
+    - Podemos actualizar estos términos en el futuro. La última actualización se indicará aquí.
+
+6. Terminación
+    - Podemos rescindir tu acceso si violas estos términos.
+
+7. Contáctanos
+    - Si tienes preguntas, contáctanos en [Correo Electrónico de Contacto].
+
+Gracias por usar [Nombre de la Aplicación/Sitio Web].
+</string>
+
+    <string name="nombre_usuario">NOMBRE</string>
+    <string name="password_usuario">PASSWORD</string>
+    <string name="sp_credenciales">SP_CREDENCIALES</string>
+    <string name="volver">Volver</string>
+
+</resources>
