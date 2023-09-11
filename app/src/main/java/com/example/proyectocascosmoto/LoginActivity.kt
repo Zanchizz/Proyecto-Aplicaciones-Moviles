@@ -3,13 +3,13 @@ package com.example.proyectocascosmoto
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import com.example.proyectocascosmoto.actividades.MainActivity
-import com.example.proyectocascosmoto.adaptadores.AdaptadorTipos
 
 
 class LoginActivity : AppCompatActivity() {
@@ -33,6 +33,17 @@ class LoginActivity : AppCompatActivity() {
         cbRecordar = findViewById(R.id.cbRecordar)
         btnIniciar = findViewById(R.id.botonIniciar)
         btnRegistrar = findViewById(R.id.botonRegistrar)
+
+        var preferencias = getSharedPreferences(resources.getString((R.string.sp_credenciales)), MODE_PRIVATE)
+        var usuarioGuardado = preferencias.getString(resources.getString(R.string.nombre_usuario), "")
+        var passwordGuardado = preferencias.getString(resources.getString(R.string.password_usuario), "")
+
+        Log.d("LoginActivity", "Usuario guardado: $usuarioGuardado")
+        Log.d("LoginActivity", "Contraseña guardada: $passwordGuardado")
+
+        etUsuario.setText(usuarioGuardado)
+
+
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar!!.title = resources.getString(R.string.Titulo)
@@ -59,36 +70,34 @@ class LoginActivity : AppCompatActivity() {
             var nombreUsuario = etUsuario.text.toString()
             var passwordUsuario = etPass.text.toString()
             if (nombreUsuario.isEmpty() || etPass.text.toString().isEmpty()) {
-                mensaje += " - Faltan Datos"
+                Toast.makeText(this,"FALTAN COMPLETAR DATOS",Toast.LENGTH_SHORT).show()
             } else {
-                mensaje += " - Datos OK"
+                Toast.makeText(this,"INICIO DE SESION EXITOSO",Toast.LENGTH_SHORT).show()
                 // Verificamos si esta tildado el CechBox
-                if (cbRecordar.isChecked)
-                    if (cbRecordar.isChecked) {
-                        var preferencias = getSharedPreferences(
-                            resources.getString((R.string.sp_credenciales)),
-                            MODE_PRIVATE
-                        )
-                        preferencias.edit()
-                            .putString(resources.getString(R.string.nombre_usuario), nombreUsuario)
-                            .apply()
-                        preferencias.edit().putString(
-                            resources.getString(R.string.password_usuario),
-                            passwordUsuario
-                        ).apply()
+                if (cbRecordar.isChecked) {
+                    var preferencias = getSharedPreferences(
+                        resources.getString((R.string.sp_credenciales)),
+                        MODE_PRIVATE)
 
-                        // Indicamos a que pantalla queremos ir
-                        val intentMain = Intent(this, MainActivity::class.java)
-                        // Agregamos datos que queremos pasar a la proxima pantalla
-                        intentMain.putExtra("nombre", nombreUsuario)
-                        // Cambiamos de pantalla
-                        startActivity(intentMain)
+                    preferencias.edit().putString(resources.getString(R.string.nombre_usuario), nombreUsuario).apply()
 
-                        // Eliminamos la Activity actual para sacarla de la Pila
+                    preferencias.edit().putString(resources.getString(R.string.password_usuario), passwordUsuario).apply()
 
-                    }
+                }
+
+                startMainActivity(nombreUsuario)
             }
         }
+
+    }
+    private fun startMainActivity(usuarioGuardado: String) {
+        // Indicamos a que pantalla queremos ir
+        val intentMain = Intent(this, MainActivity::class.java)
+        // Agregamos datos que queremos pasar a la proxima pantalla
+        intentMain.putExtra(resources.getString(R.string.nombre_usuario), usuarioGuardado)
+        // Cambiamos de pantalla
+        startActivity(intentMain)
+        // Eliminamos la Activity actual para sacarla de la Pila
 
     }
 }
