@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="#202632">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/primary_layout"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ingresar Usuario"
+        android:textSize="20sp"
+        android:textColor="@color/white"/>
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+
+        <!-- Icono -->
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_user"
+                android:layout_gravity="center_vertical"
+                app:tint="@color/white"
+                android:contentDescription="@null" />
+
+        <!-- Campo de usuario -->
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etUsuario"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/white" />
+
+        </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ingresar Contraseña"
+        android:textSize="20sp"
+        android:textColor="@color/white"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+
+        <!-- Icono de contraseña -->
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_password"
+        android:layout_gravity="center_vertical"
+        app:tint="@color/white"
+        android:contentDescription="@null" />
+
+        <!-- Campo de contraseña -->
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etPass"
+            android:textSize="15sp"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/white" />
+    </LinearLayout>
+
+
+<CheckBox
+        android:textColor="@color/white"
+        android:id="@+id/cbRecordar"
+        android:tint="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recordar Usuario" />
+
+    <LinearLayout
+        android:weightSum="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/botonRegistrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            android:backgroundTint="#00695b"
+            android:text="Crear Usuario"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/botonIniciar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            android:backgroundTint="#00695b"
+            android:text="Iniciar Sesion"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+</LinearLayout>
