@@ -9,6 +9,7 @@ import com.example.proyectocascosmoto.clasesdatos.Tipo
 import android.widget.ImageButton
 import android.content.SharedPreferences
 import android.content.Context
+import android.util.Log
 
 
 
@@ -16,9 +17,10 @@ import android.content.Context
 class Modelos : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("ModelosActivity", "onCreate() called")
         setContentView(R.layout.activity_modelos)
 
-        //lateinit var sharedPreferences: SharedPreferences
+
 
         val tipo = intent.getSerializableExtra("tip") as Tipo
 
@@ -39,6 +41,7 @@ class Modelos : AppCompatActivity() {
 
 
 
+
         for (button in starButtons) {
             // Configura un OnClickListener para cada botón de estrella
             button.setOnClickListener { toggleStarState(button, starsharedPreferences) }
@@ -55,8 +58,11 @@ class Modelos : AppCompatActivity() {
         }
     }
 
-    private fun toggleStarState(button: ImageButton, sharedPreferences: SharedPreferences) {
+    private fun toggleStarState(button: ImageButton, starsharedPreferences: SharedPreferences) {
         val isFavorite = button.tag as? Boolean ?: false // Obtener el estado actual del botón
+        Log.d("ModelosActivity", "toggleStarState() called")
+        Log.d("ToggleButton", "Button ID: ${button.id}, Current State: $isFavorite")
+
 
         if (isFavorite) {
             // Cambiar a no favorito
@@ -69,11 +75,16 @@ class Modelos : AppCompatActivity() {
         // Actualizar el estado del botón
         button.tag = !isFavorite
 
+        Log.d("ToggleButton", "Button ID: ${button.id}, New State: ${button.tag}")
+
+
         // Guardar el estado de la estrella en SharedPreferences
-        sharedPreferences.edit().putBoolean(button.tag.toString(), !isFavorite).apply()
+        starsharedPreferences.edit().putBoolean(button.tag.toString(), !isFavorite).apply()
     }
     private fun updateStarImage(button: ImageButton, isFavorite: Boolean) {
-        val isFavorite = button.tag as? Boolean ?: false
+        Log.d("UpdateStarImage", "Button ID: ${button.id}")
+        Log.d("ModelosActivity", "updateStarImage() called")
+
 
         if (isFavorite) {
             // Cambiar a favorito
