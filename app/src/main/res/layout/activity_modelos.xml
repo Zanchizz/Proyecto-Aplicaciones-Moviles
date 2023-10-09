@@ -1,57 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
-    android:orientation="vertical"
+    android:background="#202632"
     android:gravity="center_horizontal"
-    tools:context=".actividades.Modelos"
-    android:background="#202632">
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".actividades.Modelos">
 
-    <TextView
-        android:id="@+id/amTv1"
-        android:layout_width="wrap_content"
+    <!-- Primer elemento -->
+    <RelativeLayout
+        android:id="@+id/amLayout1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:textColor="#FFFFFF"
-        android:text="TextView"
-        android:textSize="30sp" />
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/amTv2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="30sp"
-        android:gravity="center_horizontal"
-        android:textColor="#FFFFFF"/>
+        <TextView
+            android:id="@+id/amTv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:gravity="center_horizontal"
+            android:text="TextView"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
 
-    <TextView
-        android:id="@+id/amTv3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="30sp"
-        android:gravity="center_horizontal"
-        android:textColor="#FFFFFF"/>
+        <ImageButton
+            android:id="@+id/amEstrella1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:scaleX="1.25"
+            android:scaleY="1.25"
+            android:src="@drawable/baseline_star_border_24"
+            android:background="@null"/>
 
-    <TextView
-        android:id="@+id/amTv4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="30sp"
-        android:gravity="center_horizontal"
-        android:textColor="#FFFFFF"/>
+    </RelativeLayout>
 
-    <TextView
-        android:id="@+id/amTv5"
-        android:layout_width="wrap_content"
+    <!-- Segundo elemento -->
+    <RelativeLayout
+        android:id="@+id/amLayout2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="30sp"
-        android:gravity="center_horizontal"
-        android:textColor="#FFFFFF"/>
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/amTv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:gravity="center_horizontal"
+            android:text="TextView"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
+
+        <ImageButton
+            android:id="@+id/amEstrella2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:scaleX="1.25"
+            android:scaleY="1.25"
+            android:src="@drawable/baseline_star_border_24"
+            android:background="@null"
+            />
+
+    </RelativeLayout>
+
+    <!-- Tercer elemento -->
+    <RelativeLayout
+        android:id="@+id/amLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/amTv3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:gravity="center_horizontal"
+            android:text="TextView"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
+
+        <ImageButton
+            android:id="@+id/amEstrella3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:scaleX="1.25"
+            android:scaleY="1.25"
+            android:src="@drawable/baseline_star_border_24"
+            android:background="@null"/>
+    </RelativeLayout>
+
+    <!-- Cuarto elemento -->
+    <RelativeLayout
+        android:id="@+id/amLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/amTv4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:gravity="center_horizontal"
+            android:text="TextView"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
+
+        <ImageButton
+            android:id="@+id/amEstrella4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:scaleX="1.25"
+            android:scaleY="1.25"
+            android:src="@drawable/baseline_star_border_24"
+            android:background="@null"/>
+
+    </RelativeLayout>
+
+
+    <!-- Quinto elemento -->
+    <RelativeLayout
+        android:id="@+id/amLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/amTv5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:gravity="center_horizontal"
+            android:text="TextView"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
+
+        <ImageButton
+            android:id="@+id/amEstrella5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:scaleX="1.25"
+            android:scaleY="1.25"
+            android:src="@drawable/baseline_star_border_24"
+            android:background="@null"/>
+    </RelativeLayout>
 </LinearLayout>
