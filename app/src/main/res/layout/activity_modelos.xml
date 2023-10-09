@@ -1,21 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#202632"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="20dp"
     tools:context=".actividades.Modelos">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#00695b"
+        app:title="Modelos"
+        app:titleTextColor="@color/white"
+        app:navigationIcon="?android:attr/homeAsUpIndicator"/>
     <!-- Primer elemento -->
+
     <RelativeLayout
         android:id="@+id/amLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
+        android:padding="20dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -38,7 +48,9 @@
             android:scaleX="1.25"
             android:scaleY="1.25"
             android:src="@drawable/baseline_star_border_24"
-            android:background="@null"/>
+            android:background="@null"
+            android:clickable="true"
+            android:focusable="true"/>
 
     </RelativeLayout>
 
@@ -50,7 +62,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="20dp">
 
         <TextView
             android:id="@+id/amTv2"
@@ -72,6 +85,8 @@
             android:scaleY="1.25"
             android:src="@drawable/baseline_star_border_24"
             android:background="@null"
+            android:clickable="true"
+            android:focusable="true"
             />
 
     </RelativeLayout>
@@ -84,7 +99,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="20dp">
 
         <TextView
             android:id="@+id/amTv3"
@@ -105,7 +121,10 @@
             android:scaleX="1.25"
             android:scaleY="1.25"
             android:src="@drawable/baseline_star_border_24"
-            android:background="@null"/>
+            android:background="@null"
+            android:clickable="true"
+            android:focusable="true"
+            />
     </RelativeLayout>
 
     <!-- Cuarto elemento -->
@@ -116,7 +135,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="20dp">
 
         <TextView
             android:id="@+id/amTv4"
@@ -137,7 +157,10 @@
             android:scaleX="1.25"
             android:scaleY="1.25"
             android:src="@drawable/baseline_star_border_24"
-            android:background="@null"/>
+            android:background="@null"
+            android:clickable="true"
+            android:focusable="true"
+            />
 
     </RelativeLayout>
 
@@ -150,7 +173,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="20dp">
 
         <TextView
             android:id="@+id/amTv5"
@@ -171,6 +195,9 @@
             android:scaleX="1.25"
             android:scaleY="1.25"
             android:src="@drawable/baseline_star_border_24"
-            android:background="@null"/>
+            android:background="@null"
+            android:clickable="true"
+            android:focusable="true"
+            />
     </RelativeLayout>
 </LinearLayout>
