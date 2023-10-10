@@ -75,7 +75,7 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this,"INICIO DE SESION EXITOSO",Toast.LENGTH_SHORT).show()
                 // Verificamos si esta tildado el CechBox
                 if (cbRecordar.isChecked) {
-                    var preferencias = getSharedPreferences(
+                    val preferencias = getSharedPreferences(
                         resources.getString((R.string.sp_credenciales)),
                         MODE_PRIVATE)
 
