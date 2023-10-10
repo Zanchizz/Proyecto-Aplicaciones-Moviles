@@ -1,23 +1,22 @@
 package com.example.proyectocascosmoto.adaptadores
 
-import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import android.widget.TextView
 import com.example.proyectocascosmoto.R
-import com.example.proyectocascosmoto.actividades.Modelos
 import com.example.proyectocascosmoto.clasesdatos.Tipo
 
 
 
 
-class AdaptadorTipos(private var lista: ArrayList<Tipo>, private var contexto: Context) :
+class AdaptadorTipos(private var lista: ArrayList<Tipo>, private var tipoCascoListener: TipoCascoListener) :
     RecyclerView.Adapter<AdaptadorTipos.ViewHolder>() {
 
-
+    interface TipoCascoListener{
+        fun onTipoCascoClicked(nombreTipo: String)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
@@ -37,7 +36,7 @@ class AdaptadorTipos(private var lista: ArrayList<Tipo>, private var contexto: C
         fun bind(tipo: Tipo) {
             vista.findViewById<TextView>(R.id.eltTvTipo).text = tipo.nombre
             vista.setOnClickListener{
-                contexto.startActivity(Intent(contexto, Modelos::class.java).putExtra("tip", tipo))
+                tipoCascoListener.onTipoCascoClicked(tipo.nombre)
             }
         }
     }

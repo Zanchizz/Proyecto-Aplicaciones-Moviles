@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:background="#202632"
     android:gravity="center_horizontal"
-    android:orientation="vertical"
-    tools:context=".actividades.Modelos">
+    android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
