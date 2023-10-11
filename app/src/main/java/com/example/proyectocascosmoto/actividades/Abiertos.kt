@@ -21,6 +21,7 @@ class Abiertos : AppCompatActivity() {
         // Creacion de los textos
         val tipo = intent.getSerializableExtra("tip") as Tipo
 
+        // Configura los textos de los modelos específicos para "Abiertos"
         findViewById<TextView>(R.id.amTv1).text = getString(R.string.Modelo1, tipo.modelo1)
         findViewById<TextView>(R.id.amTv2).text = getString(R.string.Modelo2, tipo.modelo2)
         findViewById<TextView>(R.id.amTv3).text = getString(R.string.Modelo3, tipo.modelo3)
@@ -33,7 +34,6 @@ class Abiertos : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        // Configura los textos de los modelos específicos para "Abiertos"
         findViewById<ImageButton>(R.id.amEstrella1).tag = "amEA1" // Estrella Abierta 1
         findViewById<ImageButton>(R.id.amEstrella2).tag = "amEA2" // Estrella Abierta 2
         findViewById<ImageButton>(R.id.amEstrella3).tag = "amEA3" // Estrella Abierta 3
