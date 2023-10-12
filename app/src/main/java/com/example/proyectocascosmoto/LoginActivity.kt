@@ -110,19 +110,30 @@ class LoginActivity : AppCompatActivity() {
 
                     Toast.makeText(this, "INICIO DE SESION EXITOSO", Toast.LENGTH_SHORT).show()
 
-                    preferencias.edit().putString(resources.getString(R.string.nombre_usuario), nombreUsuario).apply()
+                    preferencias.edit()
+                        .putString(resources.getString(R.string.nombre_usuario), nombreUsuario)
+                        .apply()
 
-                    preferencias.edit().putString(resources.getString(R.string.password_usuario), passwordUsuario).apply()
+                    preferencias.edit()
+                        .putString(resources.getString(R.string.password_usuario), passwordUsuario)
+                        .apply()
+
+
+                    if (areNotificationPermissionsGranted()) {
+                        Log.d("Notificacion", "Notificación enviada desde aquí")
+                        enviarNotificacion(
+                            "Usuario Guardado con Exito",
+                            "¡Bienvenido/a, $nombreUsuario!"
+                        )
+                    } else {
+                        ActivityCompat.requestPermissions(
+                            this,
+                            arrayOf(Manifest.permission.POST_NOTIFICATIONS),
+                            CODIGO_DE_PERMISO
+                        )
+
+                    }
                 }
-
-                if (areNotificationPermissionsGranted()) {
-                    Log.d("Notificacion", "Notificación enviada desde aquí")
-                    enviarNotificacion("Inicio de Sesión Exitoso", "¡Bienvenido/a, $nombreUsuario!")
-                } else {
-                    ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.POST_NOTIFICATIONS), CODIGO_DE_PERMISO)
-
-                }
-
 
                 startMainActivity(nombreUsuario)
 

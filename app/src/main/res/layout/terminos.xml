@@ -12,14 +12,25 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="#00695b"
-        app:title="Términos y Condiciones"
-        app:titleTextColor="@color/white"
-        app:navigationIcon="?android:attr/homeAsUpIndicator"/>
+        android:theme="@style/EstiloToolbar"
+        app:navigationIcon="?android:attr/homeAsUpIndicator">
+    <TextView
+        android:id="@+id/toolbar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Terminos y Condiciones"
+        android:textSize="25sp"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="center_vertical"
+        android:gravity="center" />
+
+    </androidx.appcompat.widget.Toolbar>
+
 
     <TextView
         android:id="@+id/tvTerminos"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="82dp"
         android:text="Términos y Condiciones aquí..."
         android:textSize="18sp" />
 
