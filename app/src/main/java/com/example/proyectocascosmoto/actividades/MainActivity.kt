@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity(), AdaptadorTipos.TipoCascoListener {
 
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-        supportActionBar!!.title = resources.getString(R.string.Titulo)
+        supportActionBar!!.title =  resources.getString(R.string.Titulo)
 
         recyclerView = findViewById(R.id.amRvTipos)
         recyclerView.layoutManager = LinearLayoutManager(this)

@@ -12,6 +12,7 @@
     <include
         android:id="@+id/toolbar"
         layout="@layout/primary_layout"
+        android:icon="@drawable/ic_settings"
         />
 
     <TextView

@@ -18,11 +18,15 @@ import android.app.NotificationManager
 import android.content.DialogInterface
 import android.content.pm.PackageManager
 import android.os.Build
+import android.view.Menu
+import android.view.MenuItem
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.getSystemService
+import android.provider.Settings
+
 
 
 
@@ -203,4 +207,31 @@ class LoginActivity : AppCompatActivity() {
             true // Si el dispositivo no es Android Oreo o superior, se asume que tiene permisos.
         }
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_login, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_settings) {
+            abrirConfiguracionNotificaciones()
+
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun abrirConfiguracionNotificaciones() {
+        val intent = Intent()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            intent.action = Settings.ACTION_APP_NOTIFICATION_SETTINGS
+            intent.putExtra(Settings.EXTRA_APP_PACKAGE, packageName)
+        } else {
+            intent.action = "android.settings.APP_NOTIFICATION_SETTINGS"
+            intent.putExtra("app_package", packageName)
+            intent.putExtra("app_uid", applicationInfo.uid)
+        }
+        startActivity(intent)
+    }
+
 }
