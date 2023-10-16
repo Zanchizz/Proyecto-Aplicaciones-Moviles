@@ -18,6 +18,9 @@ import android.app.NotificationManager
 import android.content.DialogInterface
 import android.content.pm.PackageManager
 import android.os.Build
+import android.provider.Settings
+import android.view.Menu
+import android.view.MenuItem
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
@@ -145,6 +148,34 @@ class LoginActivity : AppCompatActivity() {
                             // Manejo del caso "Contraseña CORRECTA"
                             withContext(Dispatchers.Main) {
                                 Toast.makeText(this@LoginActivity, "Contraseña correcta", Toast.LENGTH_SHORT).show()
+                                if (cbRecordar.isChecked) {
+
+                                    //Toast.makeText(this, "INICIO DE SESION EXITOSO", Toast.LENGTH_SHORT).show()
+
+                                    preferencias.edit()
+                                        .putString(resources.getString(R.string.nombre_usuario), nombreUsuario)
+                                        .apply()
+
+                                    preferencias.edit()
+                                        .putString(resources.getString(R.string.password_usuario), passwordUsuario)
+                                        .apply()
+
+
+                                    if (areNotificationPermissionsGranted()) {
+                                        Log.d("Notificacion", "Notificación enviada desde aquí")
+                                        enviarNotificacion(
+                                            "Usuario Guardado con Exito",
+                                            "¡Bienvenido/a, $nombreUsuario!"
+                                        )
+                                    } else {
+                                        ActivityCompat.requestPermissions(
+                                            this@LoginActivity,
+                                            arrayOf(Manifest.permission.POST_NOTIFICATIONS),
+                                            CODIGO_DE_PERMISO
+                                        )
+
+                                    }
+                                }
                                 startMainActivity(nombreUsuario)
                             }
 
@@ -165,34 +196,7 @@ class LoginActivity : AppCompatActivity() {
 
 
                 // Verificamos si esta tildado el CechBox
-                if (cbRecordar.isChecked) {
 
-                    Toast.makeText(this, "INICIO DE SESION EXITOSO", Toast.LENGTH_SHORT).show()
-
-                    preferencias.edit()
-                        .putString(resources.getString(R.string.nombre_usuario), nombreUsuario)
-                        .apply()
-
-                    preferencias.edit()
-                        .putString(resources.getString(R.string.password_usuario), passwordUsuario)
-                        .apply()
-
-
-                    if (areNotificationPermissionsGranted()) {
-                        Log.d("Notificacion", "Notificación enviada desde aquí")
-                        enviarNotificacion(
-                            "Usuario Guardado con Exito",
-                            "¡Bienvenido/a, $nombreUsuario!"
-                        )
-                    } else {
-                        ActivityCompat.requestPermissions(
-                            this,
-                            arrayOf(Manifest.permission.POST_NOTIFICATIONS),
-                            CODIGO_DE_PERMISO
-                        )
-
-                    }
-                }
                 
 
 
@@ -253,7 +257,18 @@ class LoginActivity : AppCompatActivity() {
     }
 
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_login, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_settings) {
+            abrirConfiguracionNotificaciones()
+
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
 
     private fun areNotificationPermissionsGranted(): Boolean {
@@ -263,5 +278,18 @@ class LoginActivity : AppCompatActivity() {
         } else {
             true // Si el dispositivo no es Android Oreo o superior, se asume que tiene permisos.
         }
+    }
+
+    private fun abrirConfiguracionNotificaciones() {
+        val intent = Intent()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            intent.action = Settings.ACTION_APP_NOTIFICATION_SETTINGS
+            intent.putExtra(Settings.EXTRA_APP_PACKAGE, packageName)
+        } else {
+            intent.action = "android.settings.APP_NOTIFICATION_SETTINGS"
+            intent.putExtra("app_package", packageName)
+            intent.putExtra("app_uid", applicationInfo.uid)
+        }
+        startActivity(intent)
     }
 }
