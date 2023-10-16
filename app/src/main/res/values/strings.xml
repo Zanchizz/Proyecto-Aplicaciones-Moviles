@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Lista prueba</string>
+
+    <string name="Modelo1">%1$s</string>
+
+    <string name="Modelo2">%1$s</string>
+
+    <string name="Modelo3">%1$s</string>
+
+    <string name="Modelo4">%1$s</string>
+
+    <string name="Modelo5">%1$s</string>
+
+    <!-- Separacion con otros strings -->
+
+    <string name="Titulo">Cascos de Motos</string>
+
+    <string name="boton_listado">Terminos y Condiciones</string>
+
+    <string name="appbar_scrolling_view_behavior">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
+
+
+    <string name="nombre_usuario">NOMBRE</string>
+    <string name="password_usuario">PASSWORD</string>
+    <string name="sp_credenciales">SP_CREDENCIALES</string>
+    <string name="volver">Volver</string>
+
+</resources>
